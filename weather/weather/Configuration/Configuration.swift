@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 struct API {
     static let key = "af7aa5cfc14d558e720caff21791f148"
     static let baseURL = URL(string: "https://api.darksky.net/forecast/")!

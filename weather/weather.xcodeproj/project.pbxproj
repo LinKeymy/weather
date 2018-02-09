@@ -18,6 +18,12 @@
 		D690BE44202D9B47008DE932 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE43202D9B47008DE932 /* WeatherInfo.swift */; };
 		D690BE47202D9C12008DE932 /* WeatherInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE46202D9C12008DE932 /* WeatherInfoManager.swift */; };
 		D690BE49202DA1BB008DE932 /* WeatherInfoManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE48202DA1BB008DE932 /* WeatherInfoManagerTest.swift */; };
+		D690BE4B202DA890008DE932 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE4A202DA890008DE932 /* URLSessionProtocol.swift */; };
+		D690BE4E202DA9C3008DE932 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE4D202DA9C3008DE932 /* URLSession.swift */; };
+		D690BE50202DAA35008DE932 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE4F202DAA35008DE932 /* MockURLSession.swift */; };
+		D690BE52202DAADA008DE932 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE51202DAADA008DE932 /* URLSessionDataTaskProtocol.swift */; };
+		D690BE54202DAAF1008DE932 /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE53202DAAF1008DE932 /* URLSessionDataTask.swift */; };
+		D690BE56202DAC3B008DE932 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE55202DAC3B008DE932 /* MockURLSessionDataTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		D690BE43202D9B47008DE932 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		D690BE46202D9C12008DE932 /* WeatherInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoManager.swift; sourceTree = "<group>"; };
 		D690BE48202DA1BB008DE932 /* WeatherInfoManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoManagerTest.swift; sourceTree = "<group>"; };
+		D690BE4A202DA890008DE932 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		D690BE4D202DA9C3008DE932 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		D690BE4F202DAA35008DE932 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		D690BE51202DAADA008DE932 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		D690BE53202DAAF1008DE932 /* URLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
+		D690BE55202DAC3B008DE932 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,7 @@
 		D690BE08202D8B3A008DE932 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				D690BE4C202DA9B0008DE932 /* Extensions */,
 				D690BE45202D9BFB008DE932 /* Manager */,
 				D690BE3E202D9A28008DE932 /* Configuration */,
 				D690BE3D202D8C04008DE932 /* Delegates */,
@@ -123,6 +136,8 @@
 			children = (
 				D690BE20202D8B3A008DE932 /* Info.plist */,
 				D690BE48202DA1BB008DE932 /* WeatherInfoManagerTest.swift */,
+				D690BE4F202DAA35008DE932 /* MockURLSession.swift */,
+				D690BE55202DAC3B008DE932 /* MockURLSessionDataTask.swift */,
 			);
 			path = WeatherTests;
 			sourceTree = "<group>";
@@ -181,6 +196,8 @@
 		D690BE3C202D8BFD008DE932 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D690BE4A202DA890008DE932 /* URLSessionProtocol.swift */,
+				D690BE51202DAADA008DE932 /* URLSessionDataTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -207,6 +224,15 @@
 				D690BE46202D9C12008DE932 /* WeatherInfoManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		D690BE4C202DA9B0008DE932 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D690BE4D202DA9C3008DE932 /* URLSession.swift */,
+				D690BE53202DAAF1008DE932 /* URLSessionDataTask.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,7 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D690BE4B202DA890008DE932 /* URLSessionProtocol.swift in Sources */,
 				D690BE47202D9C12008DE932 /* WeatherInfoManager.swift in Sources */,
+				D690BE52202DAADA008DE932 /* URLSessionDataTaskProtocol.swift in Sources */,
+				D690BE54202DAAF1008DE932 /* URLSessionDataTask.swift in Sources */,
+				D690BE4E202DA9C3008DE932 /* URLSession.swift in Sources */,
 				D690BE40202D9A48008DE932 /* Configuration.swift in Sources */,
 				D690BE0C202D8B3A008DE932 /* ViewController.swift in Sources */,
 				D690BE42202D9ADA008DE932 /* Location.swift in Sources */,
@@ -357,6 +387,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D690BE56202DAC3B008DE932 /* MockURLSessionDataTask.swift in Sources */,
+				D690BE50202DAA35008DE932 /* MockURLSession.swift in Sources */,
 				D690BE49202DA1BB008DE932 /* WeatherInfoManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,12 +579,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254QC4S377;
 				INFOPLIST_FILE = WeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alin.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -566,12 +600,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 254QC4S377;
 				INFOPLIST_FILE = WeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alin.WeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather.app/Weather";

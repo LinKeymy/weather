@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum InfoManagerError: Error {
+enum DataManagerError: Error {
     case failedRequest
     case invalidResponse
     case unknown
@@ -19,9 +19,9 @@ final class WeatherInfoManager {
     
     private let baseURL: URL
     
-    private let urlSession: URLSession
+    private let urlSession: URLSessionProtocol
     
-    private init(baseURL: URL, urlSession: URLSession ) {
+    init(baseURL: URL, urlSession: URLSessionProtocol ) {
         self.baseURL = baseURL
         self.urlSession = urlSession
     }
@@ -29,7 +29,7 @@ final class WeatherInfoManager {
     static let shared = WeatherInfoManager(baseURL: API.authenticatedURL,
                                            urlSession: URLSession.shared)
     
-    typealias CompletionHandler = (WeatherInfo?, InfoManagerError?) -> ()
+    typealias CompletionHandler = (WeatherInfo?, DataManagerError?) -> ()
     
     func weatherInformation(atLatitude latitude:Double,
                             longitude: Double,
@@ -44,15 +44,12 @@ final class WeatherInfoManager {
         self.urlSession.dataTask(
             with: request, completionHandler: {
                 (data, response, error) in
-                DispatchQueue.main.async {  // aack to main thread for updating UI
-                    self.didFinishGettingWeatherData(
-                        data: data,
-                        response: response,
-                        error: error,
-                        completion: completion)
-                }
+                self.didFinishGettingWeatherData(
+                    data: data,
+                    response: response,
+                    error: error,
+                    completion: completion)
         }).resume()
-        
     }
     
     func didFinishGettingWeatherData(
@@ -67,8 +64,10 @@ final class WeatherInfoManager {
             let response = response as? HTTPURLResponse {
             if response.statusCode == 200 {
                 do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
                     let weatherData =
-                        try JSONDecoder().decode(WeatherInfo.self, from: data)
+                        try decoder.decode(WeatherInfo.self, from: data)
                     completion(weatherData, nil)  // decode success
                 }
                 catch {  // decode failed
