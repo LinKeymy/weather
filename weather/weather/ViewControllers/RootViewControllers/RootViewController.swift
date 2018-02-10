@@ -11,6 +11,11 @@ import CoreLocation
 
 class RootViewController: UIViewController {
     
+    private let segueCurrentWeather = "SegueCurrentWeather"
+    private let segueWeekWeather = "SegueWeekWeather"
+    var currentWeatherViewController: CurrentWeatherViewController!
+    var weekWeatherViewController: WeekWeatherViewController!
+    
     private var currentLocation: CLLocation? {
         didSet {
             // Fetch the city name
@@ -29,7 +34,7 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupActiveNotification()
     }
     
     @objc func applicationDidBecomeActive(
@@ -58,6 +63,44 @@ class RootViewController: UIViewController {
     
 }
 
+
+// segue
+extension RootViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier
+            else { return }
+        switch identifier  {
+        case segueCurrentWeather:
+            guard let destination =
+                segue.destination as? CurrentWeatherViewController
+                else  { fatalError("Invalid destination view controller.") }
+            destination.delegate = self
+            destination.viewModel = CurrentWeatherViewModel()
+            currentWeatherViewController = destination
+        case segueWeekWeather:
+            guard let destination =
+                segue.destination as? WeekWeatherViewController
+                else { fatalError("Invalid destination view controller.") }
+            self.weekWeatherViewController = destination
+        default:
+            break
+        }
+    }
+}
+
+
+extension RootViewController: CurrentWeatherViewControllerDelegate {
+    
+    func locationButtonPressed(controller: CurrentWeatherViewController) {
+        
+    }
+    
+    func settingsButtonPressed(controller: CurrentWeatherViewController) {
+        
+    }
+}
+
+
 // fetch data
 extension RootViewController {
     
@@ -71,7 +114,10 @@ extension RootViewController {
                 dump(error)
             }
             else if let city = placemarks?.first?.locality {
-                // TODO: Notify CurrentWeatherViewController
+                self.currentWeatherViewController.viewModel?.location =
+                Location(name: city,
+                         latitude: currentLocation.coordinate.latitude,
+                         longitude: currentLocation.coordinate.longitude)
             }
         }
     }
@@ -85,14 +131,16 @@ extension RootViewController {
         WeatherInfoManager.shared.weatherInformation(
             atLatitude: lat,
             longitude: lon) { (weather, error) in
-                if error = error {
+                if let error = error {
                     dump(error)
                 }
                 else if let weather = weather {
-                   // TODO: Notify CurrentWeatherViewController
+                    self.currentWeatherViewController.viewModel?.weather = weather
+                    self.weekWeatherViewController.viewModel =
+                        WeekWeatherViewModel(weatherData: weather.daily.data)
+                
                 }
         }
-        
     }
 }
 

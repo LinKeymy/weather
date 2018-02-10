@@ -16,7 +16,7 @@ protocol CurrentWeatherViewControllerDelegate: class {
 
 
 class CurrentWeatherViewController: WeatherViewController {
-    @IBOutlet weak var tapNavBar: UINavigationBar!
+    @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var humidityLabel: UILabel!
@@ -25,26 +25,43 @@ class CurrentWeatherViewController: WeatherViewController {
     @IBOutlet weak var locationItem: UINavigationItem!
     
     var delegate: CurrentWeatherViewControllerDelegate?
-
-    var now: WeatherInfo? {
-        didSet {
-            DispatchQueue.main.async { self.updateView() }
-        }
-    }
-    var location: Location? {
-        didSet {
-            DispatchQueue.main.async { self.updateView() }
-        }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
+    private func setupView() {
+        
+    }
+    
+    @IBAction func locationButtonPressed(_ sender: UIBarButtonItem) {
+        delegate?.locationButtonPressed(controller: self)
+        print("locationButtonPressed")
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        delegate?.locationButtonPressed(controller: self)
+        print("settingsButtonPressed")
+    }
+
+    var viewModel: CurrentWeatherViewModel? {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateView()
+            }
+        }
+    }
     
     
     func updateView() {
         activityIndicatorView.stopAnimating()
         
-        if let now = now, let location = location {
-            updateWeatherContainer(with: now, at: location)
+        
+        if let vm = viewModel, vm.isUpdateReady {
+            updateWeatherContainer(with: vm)
         }
+        
         else {
             loadingFailedLabel.isHidden = false
             loadingFailedLabel.text =
@@ -52,49 +69,16 @@ class CurrentWeatherViewController: WeatherViewController {
         }
     }
     
-    func updateWeatherContainer(
-        with data: WeatherInfo, at location: Location) {
+    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
         weatherContainerView.isHidden = false
-        
-        // 1. Set location
-        locationItem.title = location.name
-        
-        // 2. Format and set temperature
-        temperatureLabel.text = String(
-            format: "%.1f °C",
-            data.currently.temperature.toCelcius())
-        
-        // 3. Set weather icon
-        weatherIcon.image = weatherIcon(
-            of: data.currently.icon)
-        
-        // 4. Format and set humidity
-        humidityLabel.text = String(
-            format: "%.1f",
-            data.currently.humidity)
-        
-        // 5. Set weather summary
-        summaryLabel.text = data.currently.summary
-        
-        // 6. Format and set datetime
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMMM"
-        dateLabel.text = formatter.string(
-            from: data.currently.time)
+        locationItem.title = vm.city
+        weatherIcon.image = vm.weatherIcon
+        humidityLabel.text = vm.humidity
+        summaryLabel.text = vm.summary
+        dateLabel.text = vm.date
     }
     
     
-    @IBAction func locationButtonPressed(_ sender: UIBarButtonItem) {
-        delegate?.locationButtonPressed(controller: self)
-    }
-    
+
 }
 
-
-extension CurrentWeatherViewController {
-
-    
-    @IBAction func settingsButtonPressed(_ sender: UIButton) {
-        delegate?.settingsButtonPressed(controller: self)
-    }
-}
