@@ -12,56 +12,43 @@ import XCTest
 @testable import Weather
 
 class WeatherInfoManagerTest: XCTestCase {
+    let url = URL(string: "https://darksky.net")!
+    var session: MockURLSession!
+    var manager: WeatherInfoManager!
     
+    
+    // 每个test case 执行前都会执行这个方法先
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        self.session = MockURLSession()
+        self.manager = WeatherInfoManager(baseURL: url, urlSession: session)
     }
     
+    // 每个test case 执行完后都会调用一下这个方法
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
     func test_weatherInfoAt_starts_the_session() {
-        let session = MockURLSession()
         let dataTask = MockURLSessionDataTask()
         session.sessionDataTask = dataTask
-        let url = URL(string:"https://darksky.net")!
+        manager.weatherInformation(
+        atLatitude: 52,
+        longitude: 100) { (_, _) in }
         
-        let manager = WeatherInfoManager(baseURL: url, urlSession: session)
-        manager.weatherInformation(atLatitude: 52, longitude: 100) { (_, _) in }
         // check the resume method whether be called or not
         XCTAssert(session.sessionDataTask.isResumeCalled)
     }
     
-    func test_weatherInfo_gets_data() {
-        
-        let expect = expectation(description: "Loding data from \(API.authenticatedURL)")
-        var data: WeatherInfo? = nil
-        
-        WeatherInfoManager.shared
-            .weatherInformation(
-            atLatitude: 52,
-            longitude: 100) { (info, error) in
-                data = info
-                expect.fulfill()
-        }
-        waitForExpectations(timeout: 15, handler: nil)
-        XCTAssertNotNil(data)
-    }
     
     // 其实下面几个test的case是检测 weatherInformation内部didFinishGettingWeatherData是处理是否OK
     // 无效请求
     func test_weatherInfo_handle_invalid_request() {
-        let url = URL(string: "https://darksky.net")!
-        let session = MockURLSession()
         session.responseError = NSError(
             domain: "Invalid Request",
             code: 100,
             userInfo: nil)
         var error: DataManagerError? = nil
-        let manager = WeatherInfoManager(baseURL: url, urlSession: session)
         manager.weatherInformation(
         atLatitude: 52,
         longitude: 100) { (_, e) in
@@ -72,8 +59,6 @@ class WeatherInfoManagerTest: XCTestCase {
     
     // 返回码非200
     func test_weatherInfo_handle_statusCode_not_equalTo_200() {
-        let url = URL(string: "https://darksky.net")!
-        let session = MockURLSession()
         let data = "{}".data(using: .utf8)!
         session.responseData = data
         session.responseHeader = HTTPURLResponse(
@@ -81,9 +66,6 @@ class WeatherInfoManagerTest: XCTestCase {
             statusCode: 404,
             httpVersion: nil,
             headerFields: nil)
-        let manager = WeatherInfoManager(
-            baseURL: url,
-            urlSession: session)
         var error: DataManagerError? = nil
         manager.weatherInformation(
             atLatitude: 50,
@@ -95,8 +77,6 @@ class WeatherInfoManagerTest: XCTestCase {
     
     //返回码为200，但JSON的decode失败
     func test_weatherInfo_handle_invalid_response() {
-        let url = URL(string: "https://darksky.net")!
-        let session = MockURLSession()
         let data = "{{".data(using: .utf8)!
         session.responseData = data
         session.responseHeader = HTTPURLResponse(
@@ -104,9 +84,6 @@ class WeatherInfoManagerTest: XCTestCase {
             statusCode: 200,
             httpVersion: nil,
             headerFields: nil)
-        let manager = WeatherInfoManager(
-            baseURL: url,
-            urlSession: session)
         var error: DataManagerError? = nil
         manager.weatherInformation(
         atLatitude: 50,
@@ -117,8 +94,6 @@ class WeatherInfoManagerTest: XCTestCase {
     }
     
     func test_weatherInfoAt_handle_response_decode() {
-        let url = URL(string: "https://darksky.net")!
-        let session = MockURLSession()
         session.responseHeader = HTTPURLResponse(
             url: url,
             statusCode: 200,
@@ -142,9 +117,6 @@ class WeatherInfoManagerTest: XCTestCase {
         session.responseData = data
        
         var decoded: WeatherInfo? = nil
-        let manager = WeatherInfoManager(
-            baseURL: url,
-            urlSession: session)
         manager.weatherInformation(
             atLatitude: 50,
             longitude: 100) { (d, _) in

@@ -52,7 +52,7 @@ final class WeatherInfoManager {
         }).resume()
     }
     
-    func didFinishGettingWeatherData(
+    private func didFinishGettingWeatherData(
         data: Data?,
         response: URLResponse?,
         error: Error?,

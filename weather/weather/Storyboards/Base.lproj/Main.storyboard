@@ -11,24 +11,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-pF-weq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
+                                <connections>
+                                    <segue destination="5eC-br-waR" kind="embed" id="8uC-SK-P1M"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-xI-2wD">
                                 <rect key="frame" x="0.0" y="255" width="375" height="412"/>
                                 <connections>
                                     <segue destination="8Lh-YH-slE" kind="embed" id="dqs-lM-jqO"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-pF-weq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
-                                <connections>
-                                    <segue destination="5eC-br-waR" kind="embed" id="UCh-za-BEO"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -51,15 +51,24 @@
             </objects>
             <point key="canvasLocation" x="-1298" y="69"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Weather View Controller-->
         <scene sceneID="A5X-HA-4mB">
             <objects>
-                <viewController id="5eC-br-waR" sceneMemberID="viewController">
+                <viewController id="5eC-br-waR" customClass="CurrentWeatherViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mNB-up-ApL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Ku-am7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oE8-cg-9IK">
+                                <rect key="frame" x="8" y="113" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5gk-0b-XdT">
+                                <rect key="frame" x="177" y="113" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Ku-am7" userLabel="Weather Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="jJF-oD-85k">
@@ -76,7 +85,11 @@
                                         </constraints>
                                         <items>
                                             <navigationItem title="深圳" id="d6e-2g-Hw2">
-                                                <barButtonItem key="leftBarButtonItem" title="定位" id="SUY-Ij-FT0"/>
+                                                <barButtonItem key="leftBarButtonItem" title="定位" id="SUY-Ij-FT0">
+                                                    <connections>
+                                                        <action selector="locationButtonPressed:" destination="5eC-br-waR" id="EaD-dT-65r"/>
+                                                    </connections>
+                                                </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" title="设置" width="1" id="Wvw-2I-fEf"/>
                                             </navigationItem>
                                         </items>
@@ -130,15 +143,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BEa-Ku-am7" secondAttribute="trailing" id="661-SW-WLk"/>
+                            <constraint firstItem="5gk-0b-XdT" firstAttribute="centerX" secondItem="mNB-up-ApL" secondAttribute="centerX" id="BkC-aZ-8Gi"/>
                             <constraint firstItem="BEa-Ku-am7" firstAttribute="leading" secondItem="mNB-up-ApL" secondAttribute="leading" id="KC4-Ui-lFf"/>
+                            <constraint firstItem="oE8-cg-9IK" firstAttribute="leading" secondItem="qDo-t8-YTx" secondAttribute="leading" constant="8" id="YAE-77-hsO"/>
+                            <constraint firstItem="5gk-0b-XdT" firstAttribute="centerY" secondItem="mNB-up-ApL" secondAttribute="centerY" id="awY-oa-Uno"/>
                             <constraint firstItem="BEa-Ku-am7" firstAttribute="top" secondItem="mNB-up-ApL" secondAttribute="top" id="fXx-b7-7OP"/>
+                            <constraint firstItem="oE8-cg-9IK" firstAttribute="centerY" secondItem="mNB-up-ApL" secondAttribute="centerY" id="nIV-dV-Pqe"/>
+                            <constraint firstItem="qDo-t8-YTx" firstAttribute="trailing" secondItem="oE8-cg-9IK" secondAttribute="trailing" constant="8" id="sHJ-qh-djz"/>
                             <constraint firstAttribute="bottom" secondItem="BEa-Ku-am7" secondAttribute="bottom" id="xmx-g5-tVK"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qDo-t8-YTx"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="5gk-0b-XdT" id="JUT-Qc-mz8"/>
+                        <outlet property="loadingFailedLabel" destination="oE8-cg-9IK" id="4n4-A8-baW"/>
+                        <outlet property="locationItem" destination="d6e-2g-Hw2" id="vZi-9a-T6q"/>
+                        <outlet property="tapNavBar" destination="Tk4-YS-izj" id="1uj-xF-fln"/>
+                        <outlet property="temperatureLabel" destination="8Xa-aS-Oai" id="ZEQ-JL-BCt"/>
+                        <outlet property="weatherContainerView" destination="BEa-Ku-am7" id="ywq-OF-0ui"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgB-Wt-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="-106"/>
+            <point key="canvasLocation" x="-465" y="-108"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6lN-sw-7Mj">
