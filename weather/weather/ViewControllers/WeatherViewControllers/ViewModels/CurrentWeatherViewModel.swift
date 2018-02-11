@@ -53,9 +53,21 @@ extension CurrentWeatherViewModel {
     }
     
     var temperature: String {
-        return String(
-            format: "%.1f °C",
-            weather.currently.temperature.toCelcius())
+        let value = weather.currently.temperature
+        
+        switch UserDefaults.temperatureMode() {
+        case .fahrenheit:
+            return String(format: "%.1f °F", value)
+        case .celsius:
+            return String(format: "%.1f °C", value.toCelcius())
+        }
+    }
+    
+    var date: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = UserDefaults.dateMode().format
+        
+        return formatter.string(from: weather.currently.time)
     }
     
     var humidity: String {
@@ -66,12 +78,5 @@ extension CurrentWeatherViewModel {
     
     var summary: String {
         return weather.currently.summary
-    }
-    
-    var date: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMMM"
-        
-        return formatter.string(from: weather.currently.time)
     }
 }

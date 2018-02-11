@@ -23,7 +23,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-pF-weq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                                 <connections>
-                                    <segue destination="5eC-br-waR" kind="embed" identifier="SegueCurrentWeather" id="8uC-SK-P1M"/>
+                                    <segue destination="5eC-br-waR" kind="embed" identifier="SegueCurrentWeather" id="nJK-BR-Ql3"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-xI-2wD">
@@ -50,7 +50,142 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1298" y="69"/>
+            <point key="canvasLocation" x="-1607" y="53"/>
+        </scene>
+        <!--Todos-->
+        <scene sceneID="Hkh-ZB-kGB">
+            <objects>
+                <tableViewController id="KpZ-pA-cBs" customClass="TodoListViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1NP-KX-DAD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoListCell" id="OuD-2u-Sz6">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OuD-2u-Sz6" id="QBg-fk-fub">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KpZ-pA-cBs" id="6jd-zg-FKX"/>
+                            <outlet property="delegate" destination="KpZ-pA-cBs" id="N3p-zK-Rwn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Todos" id="TdR-fP-CtJ">
+                        <barButtonItem key="leftBarButtonItem" title="返回" id="Nzg-hG-9mo">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="KpZ-pA-cBs" id="48g-p6-y9P"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pam-1J-9Ze">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="n9J-gL-Mii" id="XgM-g9-TRc"/>
+                                <segue destination="9Kr-tH-iji" kind="presentation" id="QgG-4V-NCL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8e-Rz-XiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="n9J-gL-Mii" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="-18"/>
+        </scene>
+        <!--Edit todo-->
+        <scene sceneID="IJT-iy-4Yj">
+            <objects>
+                <tableViewController id="l7a-jN-2i3" customClass="TodoDetailViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7G3-q1-hyo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="Rwi-og-wXr">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3LP-1D-rVT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3LP-1D-rVT" id="XHZ-EA-nGg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZI2-9C-TqD">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZI2-9C-TqD" id="WXs-Gl-ysX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DaQ-03-0lk">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaQ-03-0lk" id="90V-dC-cKU">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="l7a-jN-2i3" id="LTA-ux-bbC"/>
+                            <outlet property="delegate" destination="l7a-jN-2i3" id="JpH-6e-DcL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit todo" id="Byp-7c-NrI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8lF-jg-ehs">
+                            <connections>
+                                <action selector="cancelPressed:" destination="l7a-jN-2i3" id="pEh-hX-khR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fXQ-vC-lqE">
+                            <connections>
+                                <action selector="donePressed:" destination="l7a-jN-2i3" id="W7k-2d-FIH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNF-um-gxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="-18"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MWI-a7-PNH">
+            <objects>
+                <navigationController id="9Kr-tH-iji" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Bt-Ip-CDr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l7a-jN-2i3" kind="relationship" relationship="rootViewController" id="gEO-L0-bEb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4m-Uu-Hng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1223" y="-18"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Ta-fO-ofV">
+            <objects>
+                <navigationController id="poh-NN-F1D" sceneMemberID="viewController">
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ab1-vH-zD1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KpZ-pA-cBs" kind="relationship" relationship="rootViewController" id="3Jw-wp-YDN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sR8-5h-diN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-113" y="-18"/>
         </scene>
         <!--Current Weather View Controller-->
         <scene sceneID="A5X-HA-4mB">
@@ -67,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5gk-0b-XdT">
-                                <rect key="frame" x="177" y="113" width="20" height="20"/>
+                                <rect key="frame" x="177" y="113.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Ku-am7" userLabel="Weather Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
@@ -89,11 +224,13 @@
                                                 <barButtonItem key="leftBarButtonItem" title="定位" id="SUY-Ij-FT0">
                                                     <connections>
                                                         <action selector="locationButtonPressed:" destination="5eC-br-waR" id="EaD-dT-65r"/>
+                                                        <segue destination="2LP-g3-ejm" kind="presentation" identifier="SegueSettings" id="l1e-8N-grk"/>
                                                     </connections>
                                                 </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="设置" width="1" id="Wvw-2I-fEf">
+                                                <barButtonItem key="rightBarButtonItem" title="Todo" width="1" id="Wvw-2I-fEf">
                                                     <connections>
                                                         <action selector="settingsButtonPressed:" destination="5eC-br-waR" id="Lgj-5p-iRr"/>
+                                                        <segue destination="poh-NN-F1D" kind="presentation" id="Vy4-DC-8m4"/>
                                                     </connections>
                                                 </barButtonItem>
                                             </navigationItem>
@@ -174,7 +311,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgB-Wt-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-521" y="-302"/>
+            <point key="canvasLocation" x="-874" y="-207"/>
+        </scene>
+        <!--settings-->
+        <scene sceneID="nUF-ai-tmd">
+            <objects>
+                <tableViewController id="ZO6-Mo-Ijx" customClass="SettingsViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="YZS-8e-O9n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" id="Kux-Z6-gLH" customClass="SettingsTableViewCell" customModule="Weather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kux-Z6-gLH" id="P7W-5H-rcd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StU-A5-clc">
+                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="StU-A5-clc" secondAttribute="trailing" id="aLC-MG-Zib"/>
+                                        <constraint firstItem="StU-A5-clc" firstAttribute="leading" secondItem="P7W-5H-rcd" secondAttribute="leadingMargin" id="evB-Mz-NMh"/>
+                                        <constraint firstItem="StU-A5-clc" firstAttribute="centerY" secondItem="P7W-5H-rcd" secondAttribute="centerY" id="lNk-FB-TEn"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="StU-A5-clc" id="9dU-Fz-S7K"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="ZO6-Mo-Ijx" id="C6o-L4-PU5"/>
+                            <outlet property="delegate" destination="ZO6-Mo-Ijx" id="lVW-sd-9sR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="settings" id="u7u-zu-f0u">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="N7y-ea-1CE">
+                            <connections>
+                                <segue destination="x0N-qG-XYg" kind="unwind" unwindAction="unwindToRootViewControllerWithSegue:" id="tF0-3b-6vX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pwu-Bi-VnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="x0N-qG-XYg" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="-809"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l71-T0-0re">
+            <objects>
+                <navigationController id="2LP-g3-ejm" sceneMemberID="viewController">
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tp6-TT-XyH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZO6-Mo-Ijx" kind="relationship" relationship="rootViewController" id="zeA-fE-hUl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRE-sd-dTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="-809"/>
         </scene>
         <!--Week Weather View Controller-->
         <scene sceneID="6lN-sw-7Mj">
@@ -253,6 +460,7 @@
                                                         <constraint firstItem="gcD-Pe-T2j" firstAttribute="leading" secondItem="It3-zh-3pT" secondAttribute="leadingMargin" id="eb2-V9-mq6"/>
                                                         <constraint firstItem="gcD-Pe-T2j" firstAttribute="top" secondItem="Ar0-Jy-bzL" secondAttribute="bottom" constant="11" id="gqu-A1-eqn"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="2F0-u9-equ" secondAttribute="trailing" id="hJ5-nF-ZIa"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ar0-Jy-bzL" secondAttribute="trailingMargin" id="icQ-cT-jZt"/>
                                                         <constraint firstItem="55B-5s-e0K" firstAttribute="leading" secondItem="It3-zh-3pT" secondAttribute="leadingMargin" id="jpp-kA-YXt"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
@@ -302,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVy-lf-PFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="346"/>
+            <point key="canvasLocation" x="-873" y="175"/>
         </scene>
     </scenes>
     <resources>

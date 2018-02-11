@@ -18,7 +18,6 @@ class WeekWeatherViewController: WeatherViewController {
             DispatchQueue.main.async { self.updateView() }
         }
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +45,11 @@ class WeekWeatherViewController: WeatherViewController {
 extension WeekWeatherViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.numberOfSections ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numberOfDays ?? 0
+        return viewModel?.weatherData.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,14 +57,9 @@ extension WeekWeatherViewController: UITableViewDataSource {
             withIdentifier: WeekWeatherTableViewCell.reuseIdentifier,
             for: indexPath) as? WeekWeatherTableViewCell
         else { fatalError("Unexpected TableVeiwCell") }
-        
-        
-        if let vm = viewModel {
-            cell.week.text = vm.week(for: indexPath.row)
-            cell.date.text = vm.date(for: indexPath.row)
-            cell.temperature.text = vm.temperature(for: indexPath.row)
-            cell.weatherIcon.image = vm.weatherIcon(for: indexPath.row)
-            cell.humidity.text = vm.humidity(for: indexPath.row)
+
+        if let vm = viewModel?.viewModel(for: indexPath.row) {
+            cell.configure(with: vm)
         }
         return cell
     }

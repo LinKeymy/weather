@@ -13,14 +13,14 @@ class RootViewController: UIViewController {
     
     private let segueCurrentWeather = "SegueCurrentWeather"
     private let segueWeekWeather = "SegueWeekWeather"
+
+    
     var currentWeatherViewController: CurrentWeatherViewController!
     var weekWeatherViewController: WeekWeatherViewController!
     
     private var currentLocation: CLLocation? {
         didSet {
-            // Fetch the city name
             fetchCity()
-            // Fetch the weather data
             fetchWeather()
         }
     }
@@ -69,6 +69,7 @@ extension RootViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier
             else { return }
+        print(identifier)
         switch identifier  {
         case segueCurrentWeather:
             guard let destination =
@@ -89,10 +90,27 @@ extension RootViewController {
 }
 
 
+extension RootViewController: SettingsViewControllerDelegate {
+    
+    private func reloadUI() {
+        currentWeatherViewController.updateView()
+        weekWeatherViewController.updateView()
+    }
+    
+    func controllerDidChangeTimeMode( controller: SettingsViewController) {
+        reloadUI()
+    }
+    
+    func controllerDidChangeTemperatureMode( controller: SettingsViewController) {
+        reloadUI()
+    }
+}
+
+
 extension RootViewController: CurrentWeatherViewControllerDelegate {
     
     func locationButtonPressed(controller: CurrentWeatherViewController) {
-        
+    
     }
     
     func settingsButtonPressed(controller: CurrentWeatherViewController) {

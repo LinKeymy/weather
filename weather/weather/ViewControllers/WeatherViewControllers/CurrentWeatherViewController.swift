@@ -16,6 +16,9 @@ protocol CurrentWeatherViewControllerDelegate: class {
 
 
 class CurrentWeatherViewController: WeatherViewController {
+    
+    private let segueSettings = "SegueSettings"
+    
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -77,8 +80,31 @@ class CurrentWeatherViewController: WeatherViewController {
         summaryLabel.text = vm.summary
         dateLabel.text = vm.date
     }
-    
-    
+}
 
+
+extension CurrentWeatherViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier
+            else { return }
+        print(identifier)
+        switch identifier {
+        case segueSettings:
+            guard let destination = segue.destination as? UINavigationController,
+                let topController = destination.topViewController as? SettingsViewController
+                else { fatalError("Invalid destination view controller") }
+            guard let root = self.delegate as? RootViewController
+                else { fatalError("Unexpected delegate") }
+            topController.delegate = root
+        default:
+            break
+        }
+    }
+    
+    @IBAction func unwindToRootViewController(
+        segue: UIStoryboardSegue) {
+        print(segue)
+    }
+    
 }
 

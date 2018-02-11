@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Use this type to mock URLSession
+// Use to mock URLSession
 protocol URLSessionProtocol {
     typealias dataTaskHandler =
         (Data?, URLResponse?, Error?) -> Void

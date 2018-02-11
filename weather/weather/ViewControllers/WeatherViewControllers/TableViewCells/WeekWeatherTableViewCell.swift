@@ -16,16 +16,21 @@ class WeekWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var humidity: UILabel!
+    
+    func configure(with vm: WeekWeatherDayRepresentable) {
+        week.text = vm.week
+        date.text = vm.date
+        humidity.text = vm.humidity
+        temperature.text = vm.temperature
+        weatherIcon.image = vm.weatherIcon
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
