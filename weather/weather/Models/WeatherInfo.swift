@@ -9,13 +9,11 @@
 import Foundation
 
 struct WeatherInfo: Codable {
+    
     let latitude: Double
     let longitude: Double
     let currently: CurrentWeather
     let daily: WeekWeatherData
-    
-    
-    
     
     struct CurrentWeather: Codable {
         let time: Date
@@ -28,19 +26,11 @@ struct WeatherInfo: Codable {
     struct WeekWeatherData: Codable {
         let data: [ForecastData]
     }
-    
 
 }
 
 extension WeatherInfo: Equatable {
-    /*
-     /Users/stevelin/Documents/GitHub/weather/Weather/Weather/Models/WeatherInfo.swift:28:32: 'Self' is only available in a protocol or as the result of a method in a class; did you mean 'WeatherInfo'?
-     */
-//    public static func ==(lhs: Self, rhs: Self) -> Bool {
-//        return lhs.latitude == rhs.latitude &&
-//            lhs.longitude == rhs.longitude &&
-//            lhs.currently == rhs.currently
-//    }
+    
         public static func ==(lhs: WeatherInfo,
                               rhs: WeatherInfo) -> Bool {
             return lhs.latitude == rhs.latitude &&
@@ -59,7 +49,6 @@ extension WeatherInfo.CurrentWeather: Equatable {
             lhs.humidity == rhs.humidity
     }
 }
-
 
 extension WeatherInfo.WeekWeatherData: Equatable {
     public static func ==(lhs: WeatherInfo.WeekWeatherData,

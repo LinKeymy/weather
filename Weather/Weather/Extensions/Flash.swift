@@ -10,6 +10,7 @@ import UIKit
 
 
 extension UIViewController {
+    
     typealias AlertCallback =  ((UIAlertAction) -> Void)
     
     func flash(title: String, message: String, callback: AlertCallback? = nil) {
@@ -28,4 +29,5 @@ extension UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
 }

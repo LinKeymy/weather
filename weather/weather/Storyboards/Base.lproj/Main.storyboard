@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1607" y="53"/>
+            <point key="canvasLocation" x="-1573" y="186"/>
         </scene>
         <!--Edit Todo-->
         <scene sceneID="K3J-Ug-bCc">
@@ -171,7 +171,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiF-6J-Byd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893.5999999999999" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="1325" y="830"/>
         </scene>
         <!--Photo Collection View Controller-->
         <scene sceneID="sN7-eb-nl7">
@@ -229,7 +229,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-u2-FKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="-18"/>
+            <point key="canvasLocation" x="1909" y="834"/>
         </scene>
         <!--todos-->
         <scene sceneID="9vc-j1-GQb">
@@ -394,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiP-gJ-phM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560.79999999999995" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="234" y="835"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MWI-a7-PNH">
@@ -410,7 +410,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4m-Uu-Hng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="-18"/>
+            <point key="canvasLocation" x="797" y="834"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Ta-fO-ofV">
@@ -427,7 +427,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sR8-5h-diN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="-18"/>
+            <point key="canvasLocation" x="-443" y="835"/>
         </scene>
         <!--Current Weather View Controller-->
         <scene sceneID="A5X-HA-4mB">
@@ -463,7 +463,7 @@
                                         </constraints>
                                         <items>
                                             <navigationItem title="未知位置" id="d6e-2g-Hw2">
-                                                <barButtonItem key="leftBarButtonItem" title="定位" id="SUY-Ij-FT0">
+                                                <barButtonItem key="leftBarButtonItem" image="MoreSetting" id="SUY-Ij-FT0">
                                                     <connections>
                                                         <action selector="locationButtonPressed:" destination="5eC-br-waR" id="EaD-dT-65r"/>
                                                         <segue destination="2LP-g3-ejm" kind="presentation" identifier="SegueSettings" id="l1e-8N-grk"/>
@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgB-Wt-jKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="-207"/>
+            <point key="canvasLocation" x="-1098" y="-166"/>
         </scene>
         <!--settings-->
         <scene sceneID="nUF-ai-tmd">
@@ -606,7 +606,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwu-Bi-VnH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="x0N-qG-XYg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-809"/>
+            <point key="canvasLocation" x="250" y="-254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l71-T0-0re">
@@ -623,7 +623,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRE-sd-dTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241" y="-809"/>
+            <point key="canvasLocation" x="-382" y="-256"/>
         </scene>
         <!--Week Weather View Controller-->
         <scene sceneID="6lN-sw-7Mj">
@@ -752,17 +752,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVy-lf-PFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-873" y="175"/>
+            <point key="canvasLocation" x="-1097" y="511"/>
         </scene>
     </scenes>
     <resources>
         <image name="Delete" width="64" height="64"/>
+        <image name="MoreSetting" width="25" height="25"/>
         <image name="Save" width="64" height="64"/>
         <image name="Sync" width="64" height="64"/>
         <image name="check_selected" width="32" height="32"/>
         <image name="clear-day" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vlH-ma-yb8"/>
+        <segue reference="9LH-Pu-SW4"/>
     </inferredMetricsTieBreakers>
 </document>
