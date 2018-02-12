@@ -13,6 +13,11 @@
 		D617037C202F57F100F28DBB /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617037B202F57F100F28DBB /* TodoListViewController.swift */; };
 		D617037E202F5B5700F28DBB /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617037D202F5B5700F28DBB /* TodoDetailViewController.swift */; };
 		D6170380203003EE00F28DBB /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617037F203003EE00F28DBB /* UserDefaults.swift */; };
+		D626C99A2030AA2C00433E22 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626C9992030AA2C00433E22 /* Flash.swift */; };
+		D626C99C2031715B00433E22 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626C99B2031715B00433E22 /* FileManager.swift */; };
+		D626C99E203176A800433E22 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626C99D203176A800433E22 /* PhotoCollectionViewController.swift */; };
+		D626C9A020317EFB00433E22 /* PHPhotoLibrary+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626C99F20317EFB00433E22 /* PHPhotoLibrary+Rx.swift */; };
+		D626C9A3203187E800433E22 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D626C9A2203187E800433E22 /* PhotoCell.swift */; };
 		D690BE0A202D8B3A008DE932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D690BE09202D8B3A008DE932 /* AppDelegate.swift */; };
 		D690BE0F202D8B3A008DE932 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D690BE0D202D8B3A008DE932 /* Main.storyboard */; };
 		D690BE11202D8B3A008DE932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D690BE10202D8B3A008DE932 /* Assets.xcassets */; };
@@ -49,6 +54,7 @@
 		D6CBF7F720302D0700A71E5B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBF7F620302D0700A71E5B /* TodoItem.swift */; };
 		D6CBF7FA203047CD00A71E5B /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBF7F9203047CD00A71E5B /* TodoItemCell.swift */; };
 		D6CBF7FD20304AC800A71E5B /* TodoItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBF7FC20304AC800A71E5B /* TodoItemsViewModel.swift */; };
+		D6CBF7FF2030583000A71E5B /* PlistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CBF7FE2030582F00A71E5B /* PlistDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +85,11 @@
 		D617037B202F57F100F28DBB /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		D617037D202F5B5700F28DBB /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		D617037F203003EE00F28DBB /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		D626C9992030AA2C00433E22 /* Flash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
+		D626C99B2031715B00433E22 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		D626C99D203176A800433E22 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		D626C99F20317EFB00433E22 /* PHPhotoLibrary+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+Rx.swift"; sourceTree = "<group>"; };
+		D626C9A2203187E800433E22 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		D690BE06202D8B3A008DE932 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D690BE09202D8B3A008DE932 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D690BE0E202D8B3A008DE932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +132,7 @@
 		D6CBF7F620302D0700A71E5B /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		D6CBF7F9203047CD00A71E5B /* TodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
 		D6CBF7FC20304AC800A71E5B /* TodoItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsViewModel.swift; sourceTree = "<group>"; };
+		D6CBF7FE2030582F00A71E5B /* PlistDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDocument.swift; sourceTree = "<group>"; };
 		DAD5BA82CA8B1D9A378B576D /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF0CFC27C869A8F9EE4ACE7 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,12 +181,22 @@
 		D617037A202F57C800F28DBB /* TodoListControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D626C9A1203187C700433E22 /* CollectionViewCells */,
 				D6CBF7FB20304AA000A71E5B /* ViewModels */,
 				D6CBF7F8203047AC00A71E5B /* TableViewCells */,
 				D617037B202F57F100F28DBB /* TodoListViewController.swift */,
 				D617037D202F5B5700F28DBB /* TodoDetailViewController.swift */,
+				D626C99D203176A800433E22 /* PhotoCollectionViewController.swift */,
 			);
 			path = TodoListControllers;
+			sourceTree = "<group>";
+		};
+		D626C9A1203187C700433E22 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D626C9A2203187E800433E22 /* PhotoCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		D690BDFD202D8B3A008DE932 = {
@@ -250,6 +272,7 @@
 		D690BE38202D8BFC008DE932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D6CBF7FE2030582F00A71E5B /* PlistDocument.swift */,
 				D690BE41202D9ADA008DE932 /* Location.swift */,
 				D690BE43202D9B47008DE932 /* WeatherInfo.swift */,
 				D690BE6B202F226C008DE932 /* ForecastData.swift */,
@@ -319,11 +342,14 @@
 		D690BE4C202DA9B0008DE932 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D626C99F20317EFB00433E22 /* PHPhotoLibrary+Rx.swift */,
+				D626C9992030AA2C00433E22 /* Flash.swift */,
 				D690BE4D202DA9C3008DE932 /* URLSession.swift */,
 				D690BE53202DAAF1008DE932 /* URLSessionDataTask.swift */,
 				D690BE5C202ECD00008DE932 /* Double.swift */,
 				D690BE64202F0F4A008DE932 /* UIImage.swift */,
 				D617037F203003EE00F28DBB /* UserDefaults.swift */,
+				D626C99B2031715B00433E22 /* FileManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -735,6 +761,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D690BE4B202DA890008DE932 /* URLSessionProtocol.swift in Sources */,
+				D626C9A020317EFB00433E22 /* PHPhotoLibrary+Rx.swift in Sources */,
 				D690BE47202D9C12008DE932 /* WeatherInfoManager.swift in Sources */,
 				D6CBF7E72030073600A71E5B /* SettingsTableViewCell.swift in Sources */,
 				D690BE52202DAADA008DE932 /* URLSessionDataTaskProtocol.swift in Sources */,
@@ -744,6 +771,8 @@
 				D6CBF7EA203018EF00A71E5B /* SettingsDateViewModel.swift in Sources */,
 				D690BE60202EEFEE008DE932 /* RootViewController.swift in Sources */,
 				D690BE67202F1CC0008DE932 /* WeekWeatherViewController.swift in Sources */,
+				D626C99C2031715B00433E22 /* FileManager.swift in Sources */,
+				D626C99A2030AA2C00433E22 /* Flash.swift in Sources */,
 				D6CBF7F720302D0700A71E5B /* TodoItem.swift in Sources */,
 				D690BE6A202F1F18008DE932 /* WeekWeatherTableViewCell.swift in Sources */,
 				D690BE5D202ECD00008DE932 /* Double.swift in Sources */,
@@ -758,10 +787,13 @@
 				D690BE44202D9B47008DE932 /* WeatherInfo.swift in Sources */,
 				D6CBF7FA203047CD00A71E5B /* TodoItemCell.swift in Sources */,
 				D6CBF7FD20304AC800A71E5B /* TodoItemsViewModel.swift in Sources */,
+				D6CBF7FF2030583000A71E5B /* PlistDocument.swift in Sources */,
 				D690BE0A202D8B3A008DE932 /* AppDelegate.swift in Sources */,
 				D690BE59202EC196008DE932 /* WeatherViewController.swift in Sources */,
+				D626C9A3203187E800433E22 /* PhotoCell.swift in Sources */,
 				D690BE5B202EC5B5008DE932 /* CurrentWeatherViewController.swift in Sources */,
 				D690BE6C202F226C008DE932 /* ForecastData.swift in Sources */,
+				D626C99E203176A800433E22 /* PhotoCollectionViewController.swift in Sources */,
 				D690BE63202F0E8C008DE932 /* CurrentWeatherViewModel.swift in Sources */,
 				D6CBF7EC20301A3900A71E5B /* SettingsTemperatureViewModel.swift in Sources */,
 				D6CBF7F22030223B00A71E5B /* WeekWeatherDayViewModel.swift in Sources */,

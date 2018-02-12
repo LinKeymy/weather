@@ -18,6 +18,7 @@ protocol CurrentWeatherViewControllerDelegate: class {
 class CurrentWeatherViewController: WeatherViewController {
     
     private let segueSettings = "SegueSettings"
+    private let segueTodos = "SegueTodos"
     
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -31,21 +32,21 @@ class CurrentWeatherViewController: WeatherViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
     }
     
     private func setupView() {
+        topNavBar.setBackgroundImage(UIImage(), for: .default)
         
+        topNavBar.clipsToBounds = true
     }
     
     @IBAction func locationButtonPressed(_ sender: UIBarButtonItem) {
         delegate?.locationButtonPressed(controller: self)
-        print("locationButtonPressed")
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
         delegate?.locationButtonPressed(controller: self)
-        print("settingsButtonPressed")
     }
 
     var viewModel: CurrentWeatherViewModel? {

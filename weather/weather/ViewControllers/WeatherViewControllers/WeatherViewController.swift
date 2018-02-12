@@ -10,7 +10,6 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    
     @IBOutlet weak var weatherContainerView: UIView!
     @IBOutlet weak var loadingFailedLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -26,7 +25,6 @@ class WeatherViewController: UIViewController {
         activityIndicatorView.startAnimating()
         activityIndicatorView.hidesWhenStopped = true
     }
-    
 
 }
 

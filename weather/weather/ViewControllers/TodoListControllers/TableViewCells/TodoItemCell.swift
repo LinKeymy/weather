@@ -10,6 +10,9 @@ import UIKit
 
 class TodoItemCell: UITableViewCell {
     
+    
+    static let identifier = "TodoItemCell"
+    
     @IBOutlet weak var checkMarkLabel: UILabel!
     @IBOutlet weak var taskNameLabel: UILabel!
 
